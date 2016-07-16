@@ -11,15 +11,18 @@
       margin:0;
       padding:0;
   }
-  .gallery li, .gallery a, .gallery img {
-      display:inline-block;
-      margin:0;
-      padding:0;
-      text-decoration:none;
-  }
+
   .gallery img {
       height:auto;
+      vertical-align:middle;
       width:100%;
+  }
+  .gallery-row {
+
+  }
+  .image-container {
+    display:inline-block;
+    padding: 1px;
   }
 </style>
 <title>Title of the document</title>
@@ -49,6 +52,9 @@ foreach(scandir($directory) as $file) {
     continue;
   }
   list($width, $height) = $size;
+
+  echo "width:" . $width . "height:" . $height . "<br>";
+
   $ratio = round($width / $height * 10000);
   $ratio_list[] = $ratio;
   if(!isset($picture_by_ratio[$ratio])) {
@@ -58,18 +64,24 @@ foreach(scandir($directory) as $file) {
   $total_width += $ideal_height * ($ratio / 10000);
 }
 
+
 $row = round($total_width/$display_width);
+
 $distribution = linear_partition($ratio_list, $row);
 
-$gallery = sprintf('<div class="gallery" style="width:%dpx"><ul>',
+$gallery = sprintf('<div class="gallery" style="width:%dpx">',
 $display_width);
 
 $directory = '';
 $url = '.';
 
 foreach($distribution as $row) {
+  $padding = count($row)*2;
+  $gallery .= '<div class="gallery-row" style="padding-left:'.$padding.'px">';
   $total_ratio = array_sum($row) / 10000;
-  $height = round($display_width / $total_ratio);
+  //print_r($total_ratio);
+  //echo "<br>";
+  $height = floor($display_width / $total_ratio);
   // ensure the width sums to $display_width
   // aka largest remainder method
   $width = [];
@@ -80,20 +92,28 @@ foreach($distribution as $row) {
     $width[] = $int;
     $remainder[] = $dec - $int;
   }
+
+
   while(array_sum($width) < $display_width) {
     $k = array_search(max($remainder), $remainder);
     $width[$k]++;
     $remainder[$k] = 0;
   }
+  $first = TRUE;
   foreach($row as $k => $ratio) {
+    $padding = $first ? (0 - $padding) : 0;
+    $first = FALSE;
     $file = $directory.'/'.array_shift($picture_by_ratio[$ratio]);
+      //print_r($width[$k]);
+      //echo "<br>";
     $gallery .= sprintf(
-    '<li style="width:%f%%"><a href="%s%s">'.
-    '<img src="%s%s?w=%d&amp;h=%d" alt=""/></a></li>',
-    $width[$k]/6, $url, $file, $url, $file, $width[$k], $height);
+    '<div class="image-container" style="width:%f%%;margin-left:%dpx"><a href="%s%s">'.
+    '<img src="%s%s?w=%d&amp;h=%d" alt=""/></a></div>',
+    ($width[$k])/$display_width*100, $padding, $url, $file, $url, $file, $width[$k], $height);
   }
+  $gallery .= '</div>';
 }
-$gallery .= '</ul></div>';
+$gallery .= '</div>';
 
 echo $gallery;
 

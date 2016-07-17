@@ -25,7 +25,7 @@
     padding: 1px;
   }
 </style>
-<title>Title of the document</title>
+<title>Standalone Linear partition gallery based on "Gallery" Femto plugin</title>
 </head>
 
 <body>
@@ -53,7 +53,7 @@ foreach(scandir($directory) as $file) {
   }
   list($width, $height) = $size;
 
-  echo "width:" . $width . "height:" . $height . "<br>";
+  //echo "width:" . $width . "height:" . $height . "<br>";
 
   $ratio = round($width / $height * 10000);
   $ratio_list[] = $ratio;

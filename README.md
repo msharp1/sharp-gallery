@@ -30,7 +30,5 @@ The common inspiration is https://medium.com/@jtreitz/the-algorithm-for-a-perfec
 
  - https://sitemarina.github.io/guggenheim/ - is a gallery plugin for Kirby CMS. Looks beautiful but isn't open-source.
  - it is inspired from http://www.chromatic.io/ - This is pretty much how I want the images to appear
- - https://medium.com/@jtreitz/the-algorithm-for-a-perfectly-balanced-photo-gallery-914c94a5d8af#.f51xvq11g literature about how the chromatic gallery was made, very useful
-
- - Another implementation of the linear gallery, still inspired by chromatic
-https://medium.com/swlh/in-search-of-the-perfect-image-gallery-34f46f7615a1#.n6gwrfy9q
+ - [literature @ medium about how the chromatic gallery was made](https://medium.com/@jtreitz/the-algorithm-for-a-perfectly-balanced-photo-gallery-914c94a5d8af#.f51xvq11g), very useful
+ - [Another implementation of the linear gallery](https://medium.com/swlh/in-search-of-the-perfect-image-gallery-34f46f7615a1#.n6gwrfy9q), still inspired by chromatic

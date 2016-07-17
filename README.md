@@ -28,6 +28,7 @@ For "the best" to happen I have thought of some basic guidelines and wishes:
 ## What now ?
 In my mind, we should start from the root of the subject : showing pictures. So we need an elegant, structured and light way to display photos galleries.
 I've just started to write a [simple example](Examples/) based on Gallery Femto's plugin (see components below). It looks like this:
+
  ![gal](Examples/sshot/lineargal.jpg)
 
 

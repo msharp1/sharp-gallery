@@ -27,10 +27,9 @@ For "the best" to happen I have thought of some basic guidelines and wishes:
 
 ## What now ?
 In my mind, we should start from the root of the subject : showing pictures. So we need an elegant, structured and light way to display photos galleries.
-I've just started to write a [simple example](Examples/) based on Gallery Femto's plugin (see components below). It looks like this:
+I've just started to write a [simple example](Examples/) based on Gallery Femto's plugin (see components below). Well, it looks like [Flickr](https://www.flickr.com/explore) or Google+ this:
 
  ![gal](Examples/sshot/lineargal.jpg)
-
 
 ## Components, ressources and inspiration
 The common inspiration is https://medium.com/@jtreitz/the-algorithm-for-a-perfectly-balanced-photo-gallery-914c94a5d8af#.f51xvq11g. From there I found the following:
@@ -41,3 +40,4 @@ The common inspiration is https://medium.com/@jtreitz/the-algorithm-for-a-perfec
  - [Another implementation of the linear gallery](https://medium.com/swlh/in-search-of-the-perfect-image-gallery-34f46f7615a1#.n6gwrfy9q), still inspired by chromatic
  - [femto CMS gallery plugin](https://github.com/neckcen/femto-plugin/tree/master/gallery) uses the linear algorithm.
  - [foliopages](http://www.foliopages.com/php-jquery-ajax-photo-gallery-no-database) is a good one but unfortunately miss most of the must-have features listed above, and the another good reason to start sharp gallery.
+ - [jQuery Mosaic plugin](http://jquery-mosaic.tin.cat/) seems perfect to start sharp gallery photo display.
